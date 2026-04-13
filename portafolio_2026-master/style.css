@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+body { font-family: 'Poppins', sans-serif; }
+
+/* Filtros Estilo Chips */
+.filter-item {
+    padding: 8px 22px;
+    border-radius: 50px;
+    border: 2px solid #2563eb;
+    color: #2563eb;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+.filter-item.active, .filter-item:hover {
+    background: #2563eb;
+    color: white;
+}
+
+/* Cards de Certificados */
+.cert-card {
+    background: white;
+    border-radius: 1.25rem;
+    overflow: hidden;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+}
+.cert-card:hover {
+    transform: translateY(-10px);
+box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+}
+
+.image-wrapper {
+    position: relative;
+    height: 220px;
+    overflow: hidden;
+}
+.image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.card-body h3 {
+    min-height: 3rem; /* Esto obliga a que todos ocupen el espacio de 2 líneas */
+    display: flex;
+    align-items: center;
+}
+.cert-card:hover img { transform: scale(1.1); }
+
+/* Badge de 2 caras */
+.badge-2-sides {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: rgba(37, 99, 235, 0.9);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.category { font-size: 11px; font-weight: 700; color: #2563eb; letter-spacing: 1px; }
+.title { font-size: 15px; font-weight: 600; color: #1e293b; }
+
+/* MODAL STYLES */
+.preview-box {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.85);
+    backdrop-filter: blur(8px);
+    z-index: 100;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+.preview-box.show { display: flex; }
+
+.modal-content {
+    background: white;
+    width: 100%;
+    max-width: 900px;
+    border-radius: 1rem;
+    overflow: hidden;
+    position: relative;
+}
+.modal-header {
+    padding: 15px 20px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.modal-body {
+    position: relative;
+    padding: 10px;
+    background: #f1f5f9;
+    text-align: center;
+}
+.main-img {
+    max-height: 75vh;
+    margin: 0 auto;
+    border-radius: 8px;
+    transition: transform 0.4s ease;
+}
+
+.flip-btn {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background: #2563eb;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 50px;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4);
+    transition: all 0.3s ease;
+}
+.flip-btn:hover { background: #1d4ed8; transform: scale(1.05); }
+
+.close-btn { font-size: 24px; color: #64748b; transition: color 0.3s; }
+.close-btn:hover { color: #ef4444; }
+
+/* Utilitarios de filtrado */
+.image.hidden { display: none; }
+
+

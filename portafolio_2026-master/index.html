@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Carlos Madrid | Fullstack Developer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet" />
+    <style>
+      body { font-family: "Inter", sans-serif; }
+      .glass {
+        background: rgba(255, 255, 255, 0.02);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+      }
+      .hero-glow {
+        background: radial-gradient(circle at 50% 50%, rgba(244, 111, 34, 0.1) 0%, rgba(15, 23, 42, 0) 60%);
+      }
+      /* Estilo para el modal de imagen */
+      #modal.active { display: flex; animation: fadeIn 0.3s ease-out; }
+      @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    </style>
+  </head>
+  <body class="bg-[#0b1120] text-slate-200 antialiased selection:bg-[#F46F22] selection:text-white">
+    
+    <div id="modal" class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/90 backdrop-blur-sm p-4 md:p-20 cursor-zoom-out" onclick="closeModal()">
+        <img id="modal-img" src="" alt="Vista expandida" class="max-w-full max-h-full rounded-2xl shadow-2xl transform transition-transform duration-300 scale-95 hover:scale-100">
+    </div>
+
+    <nav class="fixed w-full z-50 px-6 py-6">
+      <div class="max-w-6xl mx-auto flex justify-between items-center glass rounded-2xl px-8 py-4">
+        <span class="text-xl font-bold bg-gradient-to-r from-[#F46F22] to-orange-400 bg-clip-text text-transparent italic tracking-tighter">
+          DevPortafolio
+        </span>
+        <div class="space-x-8 hidden md:flex text-sm font-medium">
+          <a href="#proyectos" class="hover:text-[#F46F22] transition-colors">Proyectos</a>
+          <a href="#servicios" class="hover:text-[#F46F22] transition-colors">Servicios</a>
+          <a href="#skills" class="hover:text-[#F46F22] transition-colors">Stack</a>
+          <a href="#contacto" class="hover:text-[#F46F22] transition-colors">Contacto</a>
+         <a href="certificados.html" class="bg-[#F46F22]/10 text-[#F46F22] px-4 py-2 rounded-xl hover:bg-[#F46F22] hover:text-white transition-all border border-[#F46F22]/20">Certificados</a>
+        </div>
+      </div>
+    </nav>
+
+    <header class="h-screen flex flex-col justify-center items-center text-center px-6 hero-glow">
+      <span class="text-[#F46F22] font-mono mb-4 block tracking-[0.4em] uppercase text-xs font-bold">Carlos Madrid | Dev</span>
+      <h1 class="text-5xl md:text-8xl font-bold mb-6 tracking-tight text-white">
+        Diseño, Código y <br />
+        <span class="text-slate-500 italic font-light">Solución Técnica.</span>
+      </h1>
+      <p class="max-w-2xl text-slate-400 text-lg md:text-xl mb-12 leading-relaxed">
+        Especialista en <b class="text-slate-200">.NET</b>, <b class="text-slate-200">PHP</b> y <b class="text-slate-200">Moodle</b>. 
+        Ofrezco desarrollo robusto y soporte especializado.
+      </p>
+      <div class="flex flex-col md:flex-row gap-5">
+        <a href="#proyectos" class="bg-[#F46F22] hover:bg-[#d65d1a] text-white px-10 py-4 rounded-full font-bold transition-all transform hover:scale-105">
+          Ver Proyectos
+        </a>
+        <a href="#servicios" class="border border-slate-700 hover:bg-slate-800/50 px-10 py-4 rounded-full font-bold transition-all">
+          Soporte Técnico
+        </a>
+      </div>
+    </header>
+
+    <section id="servicios" class="max-w-6xl mx-auto py-20 px-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="glass p-10 rounded-[2.5rem] border-l-4 border-l-[#F46F22]">
+                <h3 class="text-2xl font-bold text-white mb-4">E-Learning & Moodle</h3>
+                <p class="text-slate-400">Implementación, personalización y administración de plataformas Moodle para instituciones educativas. Configuración de cursos, usuarios y mantenimiento de servidores educativos.</p>
+            </div>
+            <div class="glass p-10 rounded-[2.5rem] border-l-4 border-l-blue-500">
+                <h3 class="text-2xl font-bold text-white mb-4">Soporte Técnico Remoto</h3>
+                <p class="text-slate-400">Asistencia técnica especializada mediante <b>AnyDesk</b>. Resolución de problemas de software, optimización de sistemas y soporte directo para herramientas administrativas.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="proyectos" class="max-w-6xl mx-auto py-20 px-6">
+      <div class="flex items-center gap-4 mb-16">
+        <h2 class="text-3xl font-bold text-white whitespace-nowrap">Proyectos Destacados</h2>
+        <div class="h-[1px] w-full bg-slate-800"></div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="md:col-span-2 glass p-8 rounded-[2.5rem] group border border-white/5 hover:border-[#F46F22]/30 transition-all duration-500">
+          <div class="flex justify-between items-start mb-6 text-white">
+            <h3 class="text-3xl font-bold group-hover:text-[#F46F22] transition">Sullana Motos</h3>
+            <span class="bg-[#F46F22]/10 text-[#F46F22] text-[10px] font-bold px-3 py-1 rounded-full border border-[#F46F22]/20">EN VIVO</span>
+          </div>
+          <div class="w-full h-64 bg-slate-900 rounded-3xl overflow-hidden mb-6 border border-slate-800 relative group cursor-zoom-in" onclick="openModal('./moto.jpg')">
+            <img src="./moto.jpg" alt="Sullana Motos" class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105" />
+          </div>
+          <div class="flex flex-wrap gap-3 italic text-xs text-slate-500">
+            <span>#Next.js</span> <span>#MinimalAPI</span> <span>#SQLServer</span>
+          </div>
+        </div>
+
+        <div class="glass p-8 rounded-[2.5rem] group border border-white/5 hover:border-[#F46F22]/30 transition-all duration-500">
+          <h3 class="text-xl font-bold text-white mb-4 group-hover:text-[#F46F22] transition uppercase tracking-tighter">Expense Tracker</h3>
+          <div class="w-full h-40 bg-slate-900 rounded-2xl overflow-hidden mb-4 border border-slate-800 cursor-zoom-in" onclick="openModal('./CONTROL DE GASTOS.jpg')">
+            <img src="./CONTROL DE GASTOS.jpg" alt="Expense Tracker" class="w-full h-full object-cover" />
+          </div>
+          <p class="text-slate-400 text-sm">App financiera con gráficos dinámicos y lógica de balance real.</p>
+        </div>
+
+        <div class="glass p-8 rounded-[2.5rem] group border border-white/5 hover:border-[#F46F22]/30 transition-all duration-500">
+          <h3 class="text-xl font-bold text-white mb-4 group-hover:text-[#F46F22] transition uppercase tracking-tighter">Libro de Visitas</h3>
+          <div class="w-full h-40 bg-slate-900 rounded-2xl overflow-hidden mb-4 border border-slate-800 cursor-zoom-in" onclick="openModal('./BVDIGITAL.jpg')">
+            <img src="./BVDIGITAL.jpg" alt="Visitas" class="w-full h-full object-cover" />
+          </div>
+          <p class="text-slate-400 text-sm">Control de accesos con reportes PDF/Excel para seguridad corporativa.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="py-32 bg-slate-900/20">
+      <div class="max-w-6xl mx-auto px-6 text-center">
+        <h2 class="text-sm font-bold text-[#F46F22] tracking-[0.3em] uppercase mb-16">Especialidades Técnicas</h2>
+        <div class="flex flex-wrap justify-center gap-6">
+          <div class="glass px-8 py-5 rounded-3xl flex items-center gap-5 hover:scale-105 transition-all group hover:border-[#F46F22]/50">
+            <img src="https://cdn.simpleicons.org/csharp/512BD4" width="32" height="32" alt="C#" />
+            <span class="font-bold text-lg group-hover:text-white transition">.NET / C#</span>
+          </div>
+          <div class="glass px-8 py-5 rounded-3xl flex items-center gap-5 hover:scale-105 transition-all group hover:border-[#F46F22]/50">
+            <img src="https://cdn.simpleicons.org/moodle/F7931E" width="32" height="32" alt="Moodle" />
+            <span class="font-bold text-lg group-hover:text-white transition">Moodle LMS</span>
+          </div>
+          <div class="glass px-8 py-5 rounded-3xl flex items-center gap-5 hover:scale-105 transition-all group hover:border-[#F46F22]/50">
+            <img src="https://cdn.simpleicons.org/anydesk/EF4437" width="32" height="32" alt="AnyDesk" />
+            <span class="font-bold text-lg group-hover:text-white transition">AnyDesk Support</span>
+          </div>
+          <div class="glass px-8 py-5 rounded-3xl flex items-center gap-5 hover:scale-105 transition-all group hover:border-[#F46F22]/50">
+            <img src="https://cdn.simpleicons.org/php/777BB4" width="32" height="32" alt="PHP" />
+            <span class="font-bold text-lg group-hover:text-white transition">PHP / SQL</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <footer id="contacto" class="py-40 px-6 text-center">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-5xl font-bold mb-8 text-white tracking-tight">Construyamos algo <br /><span class="text-[#F46F22] italic">excepcional.</span></h2>
+        <a href="mailto:tu-correo@gmail.com" class="text-3xl md:text-5xl font-bold text-white hover:text-[#F46F22] transition-colors break-words underline underline-offset-[12px] decoration-slate-800">
+          tu-correo@gmail.com
+        </a>
+        <div class="mt-32 pt-10 border-t border-slate-800/50 flex flex-col md:flex-row justify-between items-center gap-6 text-slate-500 text-sm">
+          <p>© 2026 Carlos Madrid | Sullana, Piura</p>
+          <div class="flex gap-8 font-medium">
+            <a href="https://www.linkedin.com/in/juan-carlos-madrid-flores-761483162/" target="_blank" class="hover:text-white transition">LinkedIn</a>
+            <a href="https://github.com/juanca-dev" target="_blank" class="hover:text-white transition">GitHub</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+        const modal = document.getElementById('modal');
+        const modalImg = document.getElementById('modal-img');
+
+        function openModal(src) {
+            modalImg.src = src;
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Evita el scroll mientras está abierto
+        }
+
+        function closeModal() {
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto'; // Devuelve el scroll
+        }
+
+        // Cerrar con la tecla Esc
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeModal();
+        });
+    </script>
+  </body>
+</html>

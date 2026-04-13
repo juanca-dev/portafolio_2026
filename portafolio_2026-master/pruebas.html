@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portafolio de Certificados | Carlos Madrid</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="bg-slate-50 text-slate-800">
+
+  <div class="max-w-7xl mx-auto px-4 py-10">
+    <header class="text-center mb-12">
+      <h1 class="text-4xl font-extrabold text-slate-900 tracking-tight">Mis Certificaciones</h1>
+      <p class="mt-2 text-slate-500 font-medium">Visualización de logros académicos y técnicos</p>
+      <nav class="fixed w-full z-50 px-6 py-6">
+  <div class="max-w-6xl mx-auto flex justify-between items-center glass rounded-2xl px-8 py-4">
+    <a href="index.html" class="text-xl font-bold bg-gradient-to-r from-[#F46F22] to-orange-400 bg-clip-text text-transparent italic tracking-tighter">
+      DevPortafolio
+    </a>
+    <div class="flex items-center gap-6 text-sm font-medium">
+      <a href="index.html" class="text-slate-400 hover:text-[#F46F22] transition-colors flex items-center gap-2">
+        <i class="fas fa-arrow-left text-xs"></i> Volver al Inicio
+      </a>
+    </div>
+  </div>
+</nav>
+
+<div class="max-w-7xl mx-auto px-4 pt-32 pb-10">
+    </header>
+
+    <nav class="flex flex-wrap justify-center gap-3 mb-12 filter-container">
+      <button class="filter-item active" data-name="all">Todos</button>
+      <button class="filter-item" data-name="caftunt">CAFTUNT</button>
+      <button class="filter-item" data-name="catolica">LA CATOLICA</button>
+      <button class="filter-item" data-name="codigo">CodiGo</button>
+      <button class="filter-item" data-name="ceti">CETI</button>
+      <button class="filter-item" data-name="senati">SENATI</button>
+      <button class="filter-item" data-name="cce">CCE</button>
+      <button class="filter-item" data-name="contepedia">CONTAPEDÍA</button>
+      <button class="filter-item" data-name="edteam">EDteam</button>
+      <button class="filter-item" data-name="moodle">Moodle Administración</button>
+    </nav>
+
+    <div class="gallery grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+
+      <div class="image group" data-name="caftunt" data-reverso="img/C.E001.jpg">
+        <div class="cert-card">
+          <div class="image-wrapper">
+            <img src="img/C.E0001.jpg" alt="Certificado CAFTUNT">
+            <!-- <div class="badge-2-sides"><i class="fas fa-clone"></i> 2 Caras</div> -->
+          </div>
+          <div class="p-4 bg-white">
+            <span class="category">CAFTUNT</span>
+            <h3 class="title">Especialista en Redes</h3>
+          </div>
+        </div>
+      </div>
+
+      <div class="image group" data-name="catolica">
+        <div class="cert-card">
+          <div class="image-wrapper">
+            <img src="img/C.E0002.jpg" alt="Certificado LA CATOLICA">
+          </div>
+          <div class="p-4 bg-white">
+            <span class="category">La CATOLICA</span>
+            <h3 class="title">Módulo de Odímatica Empresarial</h3>
+          </div>
+        </div>
+      </div>
+
+      <div class="image group" data-name="codigo" data-reverso="img/C.E003.4.jpg">
+        <div class="cert-card">
+          <div class="image-wrapper">
+            <img src="img/C.E0003.jpg" alt="Certificado CodiGo">
+            div class="badge-2-sides"><i class="fas fa-clone"></i> 2 Caras
+          </div>
+        </div>
+        <div class="p-4 bg-white">
+          <span class="category">CodiGo</span>
+          <h3 class="title">Desarrollador Web Full Stack</h3>
+        </div>
+      </div>
+
+      <div class="image group" data-name="ceti" data-reverso="img/C.E005.6.jpg">
+        <div class="cert-card">
+          <div class="image-wrapper">
+            <img src="img/C.E0005.jpg" alt="Certificado CETI">
+            div class="badge-2-sides"><i class="fas fa-clone"></i> 2 Caras
+          </div>
+        </div>
+        <div class="p-4 bg-white">
+          <span class="category">CETI</span>
+          <h3 class="title">Especialista en el Desarrollo de Software de Facturación Electrónica con PHP</h3>
+        </div>
+      </div>
+       
+       <div class="image group" data-name="senati">
+        <div class="cert-card">
+          <div class="image-wrapper">
+            <img src="img/C.E0007.jpg" alt="Certificado SENATI">
+          </div>
+          <div class="p-4 bg-white">
+            <span class="category">SENATI</span>
+            <h3 class="title">"Cloud Computing - Microsoft Azure"</h3>
+          </div>
+        </div>
+      </div>
+       <div class="image group" data-name="cce">
+        <div class="cert-card">
+          <div class="image-wrapper">
+            <img src="img/C.E0008.jpg" alt="Certificado CEE">
+          </div>
+          <div class="p-4 bg-white">
+            <span class="category">CCE</span>
+            <h3 class="title">"Excel Profesional"</h3>
+          </div>     
+        </div>
+      </div>
+      <div class="image group" data-name="contepedia">
+        <div class="cert-card">
+          <div class="image-wrapper">
+            <img src="img/C.E0009.jpg" alt="Certificado Contepedia">
+          </div>
+          <div class="p-4 bg-white">
+            <span class="category">Contepedia</span>
+            <h3 class="title">"Contabilidad Básica"</h3>
+          </div>     
+        </div>
+      </div>
+       <div class="image group" data-name="edteam">
+        <div class="cert-card">
+          <div class="image-wrapper">
+            <img src="img/C.E0010.jpg" alt="Certificado Edeteam">
+          </div>
+          <div class="p-4 bg-white">
+            <span class="category">Edeteam</span>
+            <h3 class="title">"Scrum desde Cero"</h3>
+          </div>     
+        </div>
+      </div>
+        <div class="image group" data-name="moodle">
+        <div class="cert-card">
+          <div class="image-wrapper">
+            <img src="img/C.E0011.jpg" alt="Certificado Moodle para Administración">
+          </div>
+          <div class="p-4 bg-white">
+            <span class="category">Moodle</span>
+            <h3 class="title">"Moodle para Administración"</h3>
+          </div>     
+        </div>
+      </div>
+
+
+    </div>
+
+  </div>
+  </div>
+
+  <div id="preview-box" class="preview-box hidden">
+    <div class="modal-content animate__animated animate__zoomIn">
+      <div class="modal-header">
+        <h2 class="text-lg font-bold">Certificado: <span id="category-title" class="text-blue-600"></span></h2>
+        <button id="close-modal" class="close-btn"><i class="fas fa-times"></i></button>
+      </div>
+
+      <div class="modal-body">
+        <img id="preview-img" src="" alt="Vista previa" class="main-img">
+
+        <button id="btn-flip" class="flip-btn hidden">
+          <i class="fas fa-sync-alt"></i> <span>Ver Reverso</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
