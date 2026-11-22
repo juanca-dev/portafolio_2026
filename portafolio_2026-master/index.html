@@ -1,178 +1,165 @@
 <!DOCTYPE html>
 <html lang="es" class="scroll-smooth">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Carlos Madrid | Fullstack Developer</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet" />
-    <style>
-      body { font-family: "Inter", sans-serif; }
-      .glass {
-        background: rgba(255, 255, 255, 0.02);
-        backdrop-filter: blur(12px);
-        border: 1px solid rgba(255, 255, 255, 0.05);
-      }
-      .hero-glow {
-        background: radial-gradient(circle at 50% 50%, rgba(244, 111, 34, 0.1) 0%, rgba(15, 23, 42, 0) 60%);
-      }
-      /* Estilo para el modal de imagen */
-      #modal.active { display: flex; animation: fadeIn 0.3s ease-out; }
-      @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-    </style>
-  </head>
-  <body class="bg-[#0b1120] text-slate-200 antialiased selection:bg-[#F46F22] selection:text-white">
-    
-    <div id="modal" class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/90 backdrop-blur-sm p-4 md:p-20 cursor-zoom-out" onclick="closeModal()">
-        <img id="modal-img" src="" alt="Vista expandida" class="max-w-full max-h-full rounded-2xl shadow-2xl transform transition-transform duration-300 scale-95 hover:scale-100">
-    </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DevPortafolio | Desarrollo web, sistemas y soporte en Sullana</title>
+  <meta name="description" content="Emprendimiento tecnológico en Sullana, Piura: páginas web, sistemas empresariales, soporte técnico, Moodle y cursos de programación." />
+  <meta property="og:title" content="DevPortafolio | Desarrollo web, sistemas y soporte" />
+  <meta property="og:description" content="Páginas web, sistemas, soporte técnico, Moodle y cursos de programación desde Sullana, Perú." />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#0b1120" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"DevPortafolio","areaServed":"Perú","address":{"@type":"PostalAddress","addressLocality":"Sullana","addressRegion":"Piura","addressCountry":"PE"},"sameAs":["https://github.com/juanca-dev","https://www.linkedin.com/in/juan-carlos-madrid-flores-761483162/"]}</script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    body { font-family: "Inter", system-ui, sans-serif; }
+    .glass { background: rgba(255,255,255,.03); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,.06); }
+    .hero-glow { background: radial-gradient(circle at 50% 40%, rgba(244,111,34,.14) 0%, rgba(11,17,32,0) 60%); }
+    #modal.active { display: flex; animation: fade .25s ease-out; }
+    @keyframes fade { from { opacity: 0 } to { opacity: 1 } }
+    :focus-visible { outline: 2px solid #F46F22; outline-offset: 3px; }
+    @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }
+    .field { width: 100%; background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.12); border-radius: 1rem; padding: .85rem 1rem; color: #fff; }
+    .field[aria-invalid="true"] { border-color: #f87171; }
+    select.field option { background: #0b1120; }
+  </style>
+</head>
+<body class="bg-[#0b1120] text-slate-200 antialiased selection:bg-[#F46F22] selection:text-white">
+  <a href="#contenido" class="sr-only focus:not-sr-only fixed top-2 left-2 z-[200] bg-[#F46F22] text-white px-4 py-2 rounded-lg">Saltar al contenido</a>
 
-    <nav class="fixed w-full z-50 px-6 py-6">
-      <div class="max-w-6xl mx-auto flex justify-between items-center glass rounded-2xl px-8 py-4">
-        <span class="text-xl font-bold bg-gradient-to-r from-[#F46F22] to-orange-400 bg-clip-text text-transparent italic tracking-tighter">
-          DevPortafolio
-        </span>
-        <div class="space-x-8 hidden md:flex text-sm font-medium">
-          <a href="#proyectos" class="hover:text-[#F46F22] transition-colors">Proyectos</a>
+  <div id="modal" role="dialog" aria-modal="true" aria-label="Vista ampliada" class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/90 p-4 md:p-16 cursor-zoom-out">
+    <img id="modal-img" src="" alt="Vista ampliada del proyecto" class="max-w-full max-h-full rounded-2xl shadow-2xl" />
+  </div>
+
+  <nav class="fixed w-full z-50 px-4 md:px-6 py-4" aria-label="Principal">
+    <div class="max-w-6xl mx-auto glass rounded-2xl px-6 py-3">
+      <div class="flex justify-between items-center">
+        <a href="#" class="text-xl font-bold bg-gradient-to-r from-[#F46F22] to-orange-400 bg-clip-text text-transparent italic tracking-tighter">DevPortafolio</a>
+        <div class="hidden md:flex items-center gap-8 text-sm font-medium">
           <a href="#servicios" class="hover:text-[#F46F22] transition-colors">Servicios</a>
+          <a href="#proyectos" class="hover:text-[#F46F22] transition-colors">Proyectos</a>
+          <a href="#cursos" class="hover:text-[#F46F22] transition-colors">Cursos</a>
           <a href="#skills" class="hover:text-[#F46F22] transition-colors">Stack</a>
-          <a href="#contacto" class="hover:text-[#F46F22] transition-colors">Contacto</a>
-         <a href="certificados.html" class="bg-[#F46F22]/10 text-[#F46F22] px-4 py-2 rounded-xl hover:bg-[#F46F22] hover:text-white transition-all border border-[#F46F22]/20">Certificados</a>
+          <a href="certificados.html" class="text-[#F46F22] px-4 py-2 rounded-xl border border-[#F46F22]/30 hover:bg-[#F46F22] hover:text-white transition-all">Certificados</a>
+          <a href="#contacto" class="bg-[#F46F22] hover:bg-[#d65d1a] text-white px-5 py-2 rounded-xl font-bold transition-colors">Contacto</a>
         </div>
+        <button id="menu-btn" class="md:hidden p-2 rounded-lg" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
       </div>
-    </nav>
+      <div id="menu" class="hidden md:hidden flex-col gap-1 pt-4 mt-3 border-t border-white/10 text-base">
+        <a href="#servicios" class="py-2">Servicios</a>
+        <a href="#proyectos" class="py-2">Proyectos</a>
+        <a href="#cursos" class="py-2">Cursos</a>
+        <a href="#skills" class="py-2">Stack</a>
+        <a href="certificados.html" class="py-2 text-[#F46F22]">Certificados</a>
+        <a href="#contacto" class="py-2 font-bold text-[#F46F22]">Contacto</a>
+      </div>
+    </div>
+  </nav>
 
-    <header class="h-screen flex flex-col justify-center items-center text-center px-6 hero-glow">
-      <span class="text-[#F46F22] font-mono mb-4 block tracking-[0.4em] uppercase text-xs font-bold">Carlos Madrid | Dev</span>
-      <h1 class="text-5xl md:text-8xl font-bold mb-6 tracking-tight text-white">
-        Diseño, Código y <br />
-        <span class="text-slate-500 italic font-light">Solución Técnica.</span>
-      </h1>
-      <p class="max-w-2xl text-slate-400 text-lg md:text-xl mb-12 leading-relaxed">
-        Especialista en <b class="text-slate-200">.NET</b>, <b class="text-slate-200">PHP</b> y <b class="text-slate-200">Moodle</b>. 
-        Ofrezco desarrollo robusto y soporte especializado.
-      </p>
-      <div class="flex flex-col md:flex-row gap-5">
-        <a href="#proyectos" class="bg-[#F46F22] hover:bg-[#d65d1a] text-white px-10 py-4 rounded-full font-bold transition-all transform hover:scale-105">
-          Ver Proyectos
-        </a>
-        <a href="#servicios" class="border border-slate-700 hover:bg-slate-800/50 px-10 py-4 rounded-full font-bold transition-all">
-          Soporte Técnico
-        </a>
+  <main id="contenido">
+    <header class="min-h-screen flex flex-col justify-center items-center text-center px-6 hero-glow">
+      <p class="text-[#F46F22] mb-4 tracking-[0.3em] text-xs font-bold">SULLANA, PIURA · PERÚ</p>
+      <h1 class="text-4xl md:text-7xl font-bold mb-6 tracking-tight text-white leading-tight">Software, soporte y<br /><span class="text-slate-500 italic font-light">capacitación que funcionan.</span></h1>
+      <p class="max-w-2xl text-slate-400 text-lg md:text-xl mb-10 leading-relaxed">Somos un emprendimiento tecnológico que está comenzando. Desarrollamos páginas web y sistemas con <b class="text-slate-200">.NET</b>, <b class="text-slate-200">PHP</b> y <b class="text-slate-200">JavaScript</b>, damos soporte técnico y administramos <b class="text-slate-200">Moodle</b>.</p>
+      <div class="flex flex-col sm:flex-row gap-4">
+        <a href="#contacto" class="bg-[#F46F22] hover:bg-[#d65d1a] text-white px-9 py-4 rounded-full font-bold transition-colors">Pedir una cotización</a>
+        <a href="#proyectos" class="border border-slate-700 hover:bg-slate-800/50 px-9 py-4 rounded-full font-bold transition-colors">Ver proyectos</a>
       </div>
     </header>
 
     <section id="servicios" class="max-w-6xl mx-auto py-20 px-6">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div class="glass p-10 rounded-[2.5rem] border-l-4 border-l-[#F46F22]">
-                <h3 class="text-2xl font-bold text-white mb-4">E-Learning & Moodle</h3>
-                <p class="text-slate-400">Implementación, personalización y administración de plataformas Moodle para instituciones educativas. Configuración de cursos, usuarios y mantenimiento de servidores educativos.</p>
-            </div>
-            <div class="glass p-10 rounded-[2.5rem] border-l-4 border-l-blue-500">
-                <h3 class="text-2xl font-bold text-white mb-4">Soporte Técnico Remoto</h3>
-                <p class="text-slate-400">Asistencia técnica especializada mediante <b>AnyDesk</b>. Resolución de problemas de software, optimización de sistemas y soporte directo para herramientas administrativas.</p>
-            </div>
-        </div>
+      <h2 class="text-3xl font-bold text-white mb-10">Qué hacemos</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <article class="glass p-8 rounded-3xl border-l-4 border-l-[#F46F22]"><h3 class="text-xl font-bold text-white mb-3">Páginas web y landing pages</h3><p class="text-slate-400 text-sm">Sitios rápidos, adaptados al celular y listos para recibir consultas.</p></article>
+        <article class="glass p-8 rounded-3xl border-l-4 border-l-[#F46F22]"><h3 class="text-xl font-bold text-white mb-3">Sistemas y aplicaciones web</h3><p class="text-slate-400 text-sm">Inventario, ventas, registros y reportes hechos a la medida de tu negocio.</p></article>
+        <article class="glass p-8 rounded-3xl border-l-4 border-l-blue-500"><h3 class="text-xl font-bold text-white mb-3">Soporte técnico remoto</h3><p class="text-slate-400 text-sm">Atención con <b>AnyDesk</b>: software, optimización de equipos y herramientas administrativas.</p></article>
+        <article class="glass p-8 rounded-3xl border-l-4 border-l-[#F46F22]"><h3 class="text-xl font-bold text-white mb-3">E-learning y Moodle</h3><p class="text-slate-400 text-sm">Instalación, personalización y administración de plataformas Moodle: cursos, usuarios y mantenimiento.</p></article>
+        <article class="glass p-8 rounded-3xl border-l-4 border-l-blue-500"><h3 class="text-xl font-bold text-white mb-3">Asesoría tecnológica</h3><p class="text-slate-400 text-sm">Te ayudamos a elegir qué herramienta o sistema necesitas antes de invertir.</p></article>
+        <article class="glass p-8 rounded-3xl border-l-4 border-l-[#F46F22]"><h3 class="text-xl font-bold text-white mb-3">Cursos de programación</h3><p class="text-slate-400 text-sm">Capacitación en programación y tecnologías informáticas. <a href="#cursos" class="text-[#F46F22] underline">Ver cursos</a></p></article>
+      </div>
     </section>
 
     <section id="proyectos" class="max-w-6xl mx-auto py-20 px-6">
-      <div class="flex items-center gap-4 mb-16">
-        <h2 class="text-3xl font-bold text-white whitespace-nowrap">Proyectos Destacados</h2>
-        <div class="h-[1px] w-full bg-slate-800"></div>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div class="md:col-span-2 glass p-8 rounded-[2.5rem] group border border-white/5 hover:border-[#F46F22]/30 transition-all duration-500">
-          <div class="flex justify-between items-start mb-6 text-white">
-            <h3 class="text-3xl font-bold group-hover:text-[#F46F22] transition">Sullana Motos</h3>
-            <span class="bg-[#F46F22]/10 text-[#F46F22] text-[10px] font-bold px-3 py-1 rounded-full border border-[#F46F22]/20">EN VIVO</span>
+      <h2 class="text-3xl font-bold text-white mb-10">Proyectos</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <article class="glass p-6 rounded-3xl md:col-span-2">
+          <div class="flex flex-wrap justify-between items-start gap-3 mb-4">
+            <h3 class="text-2xl font-bold text-white">Sullana Motos</h3>
+            <a href="https://sullanamotos.com" target="_blank" rel="noopener" class="bg-[#F46F22]/10 text-[#F46F22] text-xs font-bold px-3 py-1 rounded-full border border-[#F46F22]/30">En vivo: sullanamotos.com</a>
           </div>
-          <div class="w-full h-64 bg-slate-900 rounded-3xl overflow-hidden mb-6 border border-slate-800 relative group cursor-zoom-in" onclick="openModal('./moto.jpg')">
-            <img src="./moto.jpg" alt="Sullana Motos" class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105" />
-          </div>
-          <div class="flex flex-wrap gap-3 italic text-xs text-slate-500">
-            <span>#Next.js</span> <span>#MinimalAPI</span> <span>#SQLServer</span>
-          </div>
-        </div>
-
-        <div class="glass p-8 rounded-[2.5rem] group border border-white/5 hover:border-[#F46F22]/30 transition-all duration-500">
-          <h3 class="text-xl font-bold text-white mb-4 group-hover:text-[#F46F22] transition uppercase tracking-tighter">Expense Tracker</h3>
-          <div class="w-full h-40 bg-slate-900 rounded-2xl overflow-hidden mb-4 border border-slate-800 cursor-zoom-in" onclick="openModal('./CONTROL DE GASTOS.jpg')">
-            <img src="./CONTROL DE GASTOS.jpg" alt="Expense Tracker" class="w-full h-full object-cover" />
-          </div>
-          <p class="text-slate-400 text-sm">App financiera con gráficos dinámicos y lógica de balance real.</p>
-        </div>
-
-        <div class="glass p-8 rounded-[2.5rem] group border border-white/5 hover:border-[#F46F22]/30 transition-all duration-500">
-          <h3 class="text-xl font-bold text-white mb-4 group-hover:text-[#F46F22] transition uppercase tracking-tighter">Libro de Visitas</h3>
-          <div class="w-full h-40 bg-slate-900 rounded-2xl overflow-hidden mb-4 border border-slate-800 cursor-zoom-in" onclick="openModal('./BVDIGITAL.jpg')">
-            <img src="./BVDIGITAL.jpg" alt="Visitas" class="w-full h-full object-cover" />
-          </div>
-          <p class="text-slate-400 text-sm">Control de accesos con reportes PDF/Excel para seguridad corporativa.</p>
-        </div>
+          <button type="button" data-modal="moto.jpg" class="block w-full h-64 md:h-96 rounded-2xl overflow-hidden border border-slate-800 cursor-zoom-in" aria-label="Ampliar captura de Sullana Motos"><img src="moto.jpg" alt="Sitio web de Sullana Motos: catálogo de repuestos, mantenimiento y contacto" loading="lazy" class="w-full h-full object-cover object-top" /></button>
+          <p class="text-slate-400 text-sm mt-4">Catálogo de repuestos, agenda de mantenimiento y contacto para un taller de motos. <span class="text-slate-500 italic">Next.js · Minimal API · SQL Server</span></p>
+        </article>
+        <article class="glass p-6 rounded-3xl">
+          <h3 class="text-xl font-bold text-white mb-4">Sistema POS y facturación electrónica</h3>
+          <button type="button" data-modal="POS.jpg" class="block w-full h-48 rounded-2xl overflow-hidden border border-slate-800 cursor-zoom-in" aria-label="Ampliar captura del sistema POS"><img src="POS.jpg" alt="Panel del sistema POS con ventas, caja, compras y comprobantes electrónicos" loading="lazy" class="w-full h-full object-cover object-top" /></button>
+          <p class="text-slate-400 text-sm mt-4">Punto de venta, caja, compras, cuentas por cobrar y pagar, guías de remisión y comprobantes. Entorno de pruebas. <span class="text-slate-500 italic">PHP</span></p>
+        </article>
+        <article class="glass p-6 rounded-3xl">
+          <h3 class="text-xl font-bold text-white mb-4">Libro de Visitas Digital</h3>
+          <button type="button" data-modal="BVDIGITAL.jpg" class="block w-full h-48 rounded-2xl overflow-hidden border border-slate-800 cursor-zoom-in" aria-label="Ampliar captura del Libro de Visitas"><img src="BVDIGITAL.jpg" alt="Libro de Visitas Digital con registro de visitantes por DNI y contadores del día" loading="lazy" class="w-full h-full object-cover object-top" /></button>
+          <p class="text-slate-400 text-sm mt-4">Registro de visitantes con consulta automática por DNI, histórico y reportes PDF/Excel. <span class="text-slate-500 italic">PHP</span></p>
+        </article>
+        <article class="glass p-6 rounded-3xl md:col-span-2 md:grid md:grid-cols-2 md:gap-6 md:items-center">
+          <button type="button" data-modal="CONTROL%20DE%20GASTOS.jpg" class="block w-full h-56 rounded-2xl overflow-hidden border border-slate-800 cursor-zoom-in" aria-label="Ampliar captura de Control de Gastos"><img src="CONTROL%20DE%20GASTOS.jpg" alt="App Control de Gastos con gráfico de ingresos, gastos y balance" loading="lazy" class="w-full h-full object-cover object-top" /></button>
+          <div class="mt-4 md:mt-0"><h3 class="text-xl font-bold text-white mb-2">Control de Gastos</h3><p class="text-slate-400 text-sm">App financiera con gráfico dinámico, balance, filtro por mes y cambio de idioma. <span class="text-slate-500 italic">JavaScript</span></p></div>
+        </article>
       </div>
     </section>
 
-    <section id="skills" class="py-32 bg-slate-900/20">
+    <section id="cursos" class="max-w-6xl mx-auto py-20 px-6">
+      <h2 class="text-3xl font-bold text-white mb-3">Cursos de programación</h2>
+      <p class="text-slate-400 mb-10 max-w-2xl">Aprende con proyectos reales. Escríbenos para conocer horarios, modalidad y precios.</p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <article class="glass p-8 rounded-3xl flex flex-col"><h3 class="text-xl font-bold text-white mb-3">Programación web</h3><p class="text-slate-400 text-sm mb-6 grow">HTML, CSS y JavaScript para crear tu primera página web.</p><a href="#contacto" data-service="Cursos de programación" class="text-[#F46F22] font-bold">Consultar este curso</a></article>
+        <article class="glass p-8 rounded-3xl flex flex-col"><h3 class="text-xl font-bold text-white mb-3">Sistemas y bases de datos</h3><p class="text-slate-400 text-sm mb-6 grow">PHP, SQL y C#/.NET para construir sistemas de gestión.</p><a href="#contacto" data-service="Cursos de programación" class="text-[#F46F22] font-bold">Consultar este curso</a></article>
+        <article class="glass p-8 rounded-3xl flex flex-col"><h3 class="text-xl font-bold text-white mb-3">Herramientas informáticas</h3><p class="text-slate-400 text-sm mb-6 grow">Excel, Moodle y soporte técnico para el trabajo diario.</p><a href="#contacto" data-service="Cursos de programación" class="text-[#F46F22] font-bold">Consultar este curso</a></article>
+      </div>
+    </section>
+
+    <section id="skills" class="py-24 bg-slate-900/20">
       <div class="max-w-6xl mx-auto px-6 text-center">
-        <h2 class="text-sm font-bold text-[#F46F22] tracking-[0.3em] uppercase mb-16">Especialidades Técnicas</h2>
-        <div class="flex flex-wrap justify-center gap-6">
-          <div class="glass px-8 py-5 rounded-3xl flex items-center gap-5 hover:scale-105 transition-all group hover:border-[#F46F22]/50">
-            <img src="https://cdn.simpleicons.org/csharp/512BD4" width="32" height="32" alt="C#" />
-            <span class="font-bold text-lg group-hover:text-white transition">.NET / C#</span>
-          </div>
-          <div class="glass px-8 py-5 rounded-3xl flex items-center gap-5 hover:scale-105 transition-all group hover:border-[#F46F22]/50">
-            <img src="https://cdn.simpleicons.org/moodle/F7931E" width="32" height="32" alt="Moodle" />
-            <span class="font-bold text-lg group-hover:text-white transition">Moodle LMS</span>
-          </div>
-          <div class="glass px-8 py-5 rounded-3xl flex items-center gap-5 hover:scale-105 transition-all group hover:border-[#F46F22]/50">
-            <img src="https://cdn.simpleicons.org/anydesk/EF4437" width="32" height="32" alt="AnyDesk" />
-            <span class="font-bold text-lg group-hover:text-white transition">AnyDesk Support</span>
-          </div>
-          <div class="glass px-8 py-5 rounded-3xl flex items-center gap-5 hover:scale-105 transition-all group hover:border-[#F46F22]/50">
-            <img src="https://cdn.simpleicons.org/php/777BB4" width="32" height="32" alt="PHP" />
-            <span class="font-bold text-lg group-hover:text-white transition">PHP / SQL</span>
-          </div>
-        </div>
+        <h2 class="text-3xl font-bold text-white mb-12">Tecnologías</h2>
+        <ul class="flex flex-wrap justify-center gap-5">
+          <li class="glass px-7 py-4 rounded-2xl flex items-center gap-4"><img src="https://cdn.simpleicons.org/csharp/512BD4" width="28" height="28" alt="" /><span class="font-bold">.NET / C#</span></li>
+          <li class="glass px-7 py-4 rounded-2xl flex items-center gap-4"><img src="https://cdn.simpleicons.org/php/777BB4" width="28" height="28" alt="" /><span class="font-bold">PHP / SQL</span></li>
+          <li class="glass px-7 py-4 rounded-2xl flex items-center gap-4"><img src="https://cdn.simpleicons.org/moodle/F7931E" width="28" height="28" alt="" /><span class="font-bold">Moodle LMS</span></li>
+          <li class="glass px-7 py-4 rounded-2xl flex items-center gap-4"><img src="https://cdn.simpleicons.org/anydesk/EF4437" width="28" height="28" alt="" /><span class="font-bold">AnyDesk</span></li>
+        </ul>
       </div>
     </section>
 
+    <section id="contacto" class="max-w-3xl mx-auto py-24 px-6">
+      <h2 class="text-4xl font-bold text-white mb-3">Cuéntanos qué necesitas</h2>
+      <p class="text-slate-400 mb-10">Te respondemos por correo. Todos los campos son obligatorios.</p>
+      <form id="form" name="contacto" method="POST" action="/gracias.html" data-netlify="true" netlify-honeypot="bot-field" novalidate class="glass p-6 md:p-10 rounded-3xl grid gap-5">
+        <input type="hidden" name="form-name" value="contacto" />
+        <p hidden><label>No completar: <input name="bot-field" /></label></p>
+        <div><label for="nombre" class="block text-sm mb-2">Nombre completo</label><input id="nombre" name="nombre" class="field" required minlength="3" autocomplete="name" /><p class="err text-red-400 text-sm mt-1" aria-live="polite"></p></div>
+        <div><label for="email" class="block text-sm mb-2">Correo electrónico</label><input id="email" name="email" type="email" class="field" required autocomplete="email" /><p class="err text-red-400 text-sm mt-1" aria-live="polite"></p></div>
+        <div><label for="servicio" class="block text-sm mb-2">Servicio solicitado</label>
+          <select id="servicio" name="servicio" class="field" required>
+            <option value="">Elige una opción</option><option>Desarrollo web</option><option>Desarrollo de sistemas</option><option>Soporte técnico</option><option>Cursos de programación</option><option>Otros servicios</option>
+          </select><p class="err text-red-400 text-sm mt-1" aria-live="polite"></p></div>
+        <div><label for="mensaje" class="block text-sm mb-2">Mensaje</label><textarea id="mensaje" name="mensaje" rows="5" class="field" required minlength="10"></textarea><p class="err text-red-400 text-sm mt-1" aria-live="polite"></p></div>
+        <button id="enviar" type="submit" class="bg-[#F46F22] hover:bg-[#d65d1a] disabled:opacity-60 text-white py-4 rounded-full font-bold transition-colors">Enviar mensaje</button>
+        <p id="estado" role="status" class="text-sm"></p>
+      </form>
+    </section>
+  </main>
 
-    <footer id="contacto" class="py-40 px-6 text-center">
-      <div class="max-w-4xl mx-auto">
-        <h2 class="text-5xl font-bold mb-8 text-white tracking-tight">Construyamos algo <br /><span class="text-[#F46F22] italic">excepcional.</span></h2>
-        <a href="mailto:tu-correo@gmail.com" class="text-3xl md:text-5xl font-bold text-white hover:text-[#F46F22] transition-colors break-words underline underline-offset-[12px] decoration-slate-800">
-          tu-correo@gmail.com
-        </a>
-        <div class="mt-32 pt-10 border-t border-slate-800/50 flex flex-col md:flex-row justify-between items-center gap-6 text-slate-500 text-sm">
-          <p>© 2026 Carlos Madrid | Sullana, Piura</p>
-          <div class="flex gap-8 font-medium">
-            <a href="https://www.linkedin.com/in/juan-carlos-madrid-flores-761483162/" target="_blank" class="hover:text-white transition">LinkedIn</a>
-            <a href="https://github.com/juanca-dev" target="_blank" class="hover:text-white transition">GitHub</a>
-          </div>
-        </div>
+  <footer class="py-10 px-6 border-t border-slate-800/50 text-slate-500 text-sm">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+      <p>© <span id="year">2026</span> DevPortafolio · Sullana, Piura</p>
+      <div class="flex gap-6 font-medium">
+        <a href="https://www.linkedin.com/in/juan-carlos-madrid-flores-761483162/" target="_blank" rel="noopener" class="hover:text-white">LinkedIn</a>
+        <a href="https://github.com/juanca-dev" target="_blank" rel="noopener" class="hover:text-white">GitHub</a>
       </div>
-    </footer>
-
-    <script>
-        const modal = document.getElementById('modal');
-        const modalImg = document.getElementById('modal-img');
-
-        function openModal(src) {
-            modalImg.src = src;
-            modal.classList.add('active');
-            document.body.style.overflow = 'hidden'; // Evita el scroll mientras está abierto
-        }
-
-        function closeModal() {
-            modal.classList.remove('active');
-            document.body.style.overflow = 'auto'; // Devuelve el scroll
-        }
-
-        // Cerrar con la tecla Esc
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') closeModal();
-        });
-    </script>
-  </body>
+    </div>
+  </footer>
+  <script src="main.js"></script>
+</body>
 </html>
