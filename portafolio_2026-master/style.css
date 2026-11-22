@@ -1,76 +1,82 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
 
-body { font-family: 'Poppins', sans-serif; }
+:root {
+    --bg: #0b1120;
+    --accent: #F46F22;
+    --accent-dark: #d65d1a;
+    --card: rgba(255, 255, 255, 0.03);
+    --line: rgba(255, 255, 255, 0.08);
+}
 
-/* Filtros Estilo Chips */
+body { font-family: 'Inter', system-ui, sans-serif; }
+
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+/* Filtros estilo chips */
 .filter-item {
     padding: 8px 22px;
     border-radius: 50px;
-    border: 2px solid #2563eb;
-    color: #2563eb;
+    border: 1px solid var(--line);
+    color: #cbd5e1;
     font-weight: 500;
-    transition: all 0.3s ease;
-}
-.filter-item.active, .filter-item:hover {
-    background: #2563eb;
-    color: white;
-}
-
-/* Cards de Certificados */
-.cert-card {
-    background: white;
-    border-radius: 1.25rem;
-    overflow: hidden;
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     cursor: pointer;
+    transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
-.cert-card:hover {
-    transform: translateY(-10px);
-box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+.filter-item:hover { border-color: var(--accent); color: var(--accent); }
+.filter-item.active {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
 }
 
-.image-wrapper {
-    position: relative;
-    height: 220px;
+/* Tarjetas de certificados */
+.image { cursor: pointer; border-radius: 1.5rem; }
+.cert-card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 1.5rem;
     overflow: hidden;
+    transition: transform 0.3s ease, border-color 0.3s ease;
 }
+.cert-card:hover { transform: translateY(-6px); border-color: rgba(244, 111, 34, 0.45); }
+.cert-card .bg-white { background: transparent; }
+
+.image-wrapper { position: relative; height: 220px; overflow: hidden; }
 .image-wrapper img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     transition: transform 0.5s ease;
 }
+.cert-card:hover img { transform: scale(1.05); }
 
-.card-body h3 {
-    min-height: 3rem; /* Esto obliga a que todos ocupen el espacio de 2 líneas */
-    display: flex;
-    align-items: center;
-}
-.cert-card:hover img { transform: scale(1.1); }
-
-/* Badge de 2 caras */
+/* Insignia de 2 caras */
 .badge-2-sides {
     position: absolute;
     top: 12px;
     right: 12px;
-    background: rgba(37, 99, 235, 0.9);
-    color: white;
+    background: rgba(244, 111, 34, 0.92);
+    color: #fff;
     padding: 4px 12px;
     border-radius: 20px;
     font-size: 10px;
-    font-weight: bold;
-    text-transform: uppercase;
+    font-weight: 700;
 }
 
-.category { font-size: 11px; font-weight: 700; color: #2563eb; letter-spacing: 1px; }
-.title { font-size: 15px; font-weight: 600; color: #1e293b; }
+.category { font-size: 11px; font-weight: 700; color: var(--accent); letter-spacing: 1px; }
+.title {
+    font-size: 15px;
+    font-weight: 600;
+    color: #e2e8f0;
+    min-height: 2.5rem; /* reserva 2 líneas para alinear las tarjetas */
+    margin-top: 4px;
+}
 
-/* MODAL STYLES */
+/* Vista previa (modal) */
 .preview-box {
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,0.85);
+    background: rgba(0, 0, 0, 0.88);
     backdrop-filter: blur(8px);
     z-index: 100;
     display: none;
@@ -81,51 +87,62 @@ box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 
 .preview-box.show { display: flex; }
 
 .modal-content {
-    background: white;
+    background: #111a2e;
+    color: #e2e8f0;
+    border: 1px solid var(--line);
     width: 100%;
     max-width: 900px;
-    border-radius: 1rem;
+    border-radius: 1.25rem;
     overflow: hidden;
     position: relative;
 }
 .modal-header {
     padding: 15px 20px;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid var(--line);
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
+.modal-header #category-title { color: var(--accent); }
 .modal-body {
     position: relative;
-    padding: 10px;
-    background: #f1f5f9;
+    padding: 12px;
+    background: #0b1120;
     text-align: center;
 }
 .main-img {
+    max-width: 100%;
     max-height: 75vh;
     margin: 0 auto;
     border-radius: 8px;
-    transition: transform 0.4s ease;
+    transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 .flip-btn {
     position: absolute;
     bottom: 20px;
     right: 20px;
-    background: #2563eb;
-    color: white;
+    background: var(--accent);
+    color: #fff;
     padding: 12px 24px;
     border-radius: 50px;
     font-weight: 600;
-    box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4);
-    transition: all 0.3s ease;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(244, 111, 34, 0.35);
+    transition: background 0.3s ease, transform 0.3s ease;
 }
-.flip-btn:hover { background: #1d4ed8; transform: scale(1.05); }
+.flip-btn:hover { background: var(--accent-dark); transform: scale(1.05); }
 
-.close-btn { font-size: 24px; color: #64748b; transition: color 0.3s; }
+.close-btn { font-size: 24px; color: #94a3b8; cursor: pointer; transition: color 0.3s; }
 .close-btn:hover { color: #ef4444; }
 
 /* Utilitarios de filtrado */
 .image.hidden { display: none; }
 
+@media (max-width: 640px) {
+    .flip-btn { bottom: 12px; right: 12px; padding: 10px 18px; }
+}
 
+@media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; animation: none !important; }
+}
